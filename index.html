@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pamblam/Animate.js</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.anxiety-inducing-header{
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+				letter-spacing: 1px;
+			}
+
+			.l2r-container{
+				position: relative;
+				border: 2px solid black;
+				padding: 3px;
+				width: 100%;
+				height: 40px;
+				margin: 0;
+			}
+
+			.bounce-container{
+				position: relative;
+				border: 2px solid black;
+				padding: 3px;
+				width: 100%;
+				height: 500px;
+				margin: 0;
+			}
+
+			.blue-ball{
+				width: 50px;
+				height: 50px;
+				background-color: blue;
+				border-radius: 50px;
+				position: absolute;
+				left: 3px;
+				top: 3px;
+				margin:0;
+				padding: 0;
+			}
+
+			.red-ball{
+				width: 30px;
+				height: 30px;
+				background-color: red;
+				border-radius: 30px;
+				position: absolute;
+				left: 3px;
+				margin:0;
+				padding: 0;
+			}
+
+			.fo-container, .rotate-container{
+				border: 2px solid black;
+				padding: 3px;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+
+			<h1 class="anxiety-inducing-header">Animate&nbsp;Function&nbsp;Demo</h1>
+
+			<div class="card mb-3">
+				<div class="card-header">Animate Left to Right</div>
+				<div class="card-body">
+					<div class="row animate-l2r">
+						<div class="col-sm-7">
+							<div class="l2r-container">
+								<div class="red-ball"></div>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+					<div class="row animate-l2r">
+						<div class="col-sm-7">
+							<div class="l2r-container">
+								<div class="red-ball"></div>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+					<div class="row animate-l2r">
+						<div class="col-sm-7">
+							<div class="l2r-container">
+								<div class="red-ball"></div>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+		
+					<button class='btn btn-primary mt-3' id='animate-l2r-btn'>Animate All</button>
+				</div>
+			</div>
+
+			<div class="card mb-3">
+				<div class="card-header">Fade Out</div>
+				<div class="card-body">
+
+					<div class="row animate-fo mb-3">
+						<div class="col-sm-6">
+							<div class="fo-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+						<div class="col-sm-6">
+							<div class="fo-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+					<div class="row animate-fo mb-3">
+						<div class="col-sm-6">
+							<div class="fo-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+						<div class="col-sm-6">
+							<div class="fo-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+		
+					<button class='btn btn-primary' id='animate-fo-btn'>Animate All</button>
+				</div>
+			</div>
+
+			<div class="card mb-3">
+				<div class="card-header">Rotate</div>
+				<div class="card-body">
+
+					<div class="row animate-rotate mb-3">
+						<div class="col-sm-6">
+							<div class="rotate-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+						<div class="col-sm-6">
+							<div class="rotate-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+					<div class="row animate-rotate mb-3">
+						<div class="col-sm-6">
+							<div class="rotate-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+						<div class="col-sm-6">
+							<div class="rotate-container">
+								<div class="smile-guy text-center"></div>
+							</div>
+							<select class="easing-select form-select"></select>
+						</div>
+					</div>
+		
+					<button class='btn btn-primary' id='animate-rotate-btn'>Animate All</button>
+				</div>
+			</div>
+
+			<div class="card mb-3">
+				<div class="card-header">Multiple properties at once</div>
+				<div class="card-body">
+					<div class="bounce-container mb-3">
+						<div class="blue-ball"></div>
+					</div>
+					<button class='btn btn-primary' id='animate-bounce-btn'>Animate</button>
+				</div>
+			</div>
+
+		</div>
+		
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./animate.js" type="module"></script>
+		<script type="module">
+
+			import {animate} from "./animate.js";
+
+			const smiley_img = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA0lBMVEX/vWj/////6`+
+				`e7MMYT+u2jLMIT/v2f+umjMM4P/6e3+5uzKLIT/wGf/xGb/+/z/7PD/8/bIJoX/xmb/9fX/yWXHIIbJJX7QQIH/+vjGG4b42eTXVH7`+
+				`yoW7OOIL0p237tmn2rWvUT3/mgXXGEXfjdXfYWX31ydvohnTSSIDPP4vwmnD0o27tkXHcZXvbYHzeeqrvs8/lj7nrpsfQSI3ga3jXY`+
+				`p30wtjec6njc3fulHHkkrnrinLTVJXzxtntts76sWnaZ6Psqsj209//0mPjj7beeKtc4vNSAAAcbElEQVR4nO2dCXvautKAKZYXLDv`+
+				`GBuyEfUsgrA0hC5DGSW/7///Sp5FZZONFBpP2fE/nObfNTRrgtUYzo9FolPv2/11yf/oDXFz+Ef735R/hf1/+Ef735R9hJnIFUioVD`+
+				`1Iq0e99xZtflhDAikWDSCEflAL5LrBemvNyhB7blob5M/j/KegFMS9EeEXhjgcuSgDzQpAXIAS6QoGfbjuehfxlKLMmJHjp0HyYhUL`+
+				`2kJkSEjw15dgdDaSqZgyZHSGxLGlVM0LUPLGwmX2urAjP0s4QyW4gsyGM5YOBVXcS+PoLGLMgLBkxfBTFIEEMFS+e2X5teD+McCrE6`+
+				`hilDD7d+YRXIfHKAc4oXV+XDPXn8/fF+uFhPv/9ez6fPzysF9+ff+5+GDWcYFrPH8dzCQlfOCCMXOm6VH1ezD/e7gX7SETl/u3jYfF`+
+				`DJf8KRjNKWc9lPI/wqhilnMR7q3eLl3u71+vZtiCIQlDId2z60/uXxZ1ajNb0M+fjOYShfEQxiWzpyEgdkR2REk778ffnHfwiuIqMG`+
+				`c8gLIU8daKaRr76vH4in9veIihEBFHEfhFF7weegNY+rZ+r8OshjOeYnJMJQwYQwhGj+v4L8MQdnCBikwgWGs6w06mBdDpDpyF436a`+
+				`cu7EUnn69V4vFEMbC6cN4KmGIAySm0fixflJ2g0c+OVAITm3aH0xG9Wa77bqtVsttt9vN+mgy6E9rjkDpd2Np2/dP6zujFMJ4sns8j`+
+				`fAqlE/9/vJ4wMNmxWzU+pOx28pJ4ZJrtceT11qD/Eu8hxQf5+954kOyGsaTCEvBNyd81/nF20E5ceVGrPXrLV3XpdxeENr+hXbfkDR`+
+				`d11qjfgffVPBeXYW3BXm9oyDeKH4VYTHk+aoPuGdvnQA2sbMcyeWynpNllIsXJMs5vVyWR0uH/N7Wrdg9cZ0vBgkL6imI6QmvjhTIM`+
+				`Krre4+PTD2sdF4JniUhOQHuIDKSLIDsKMTIesrau1+owblQOMX/pyYMaijxYlXQT0/BMB4uV65O8JLGzj+QCAGk7k6Wwz2j/fZZNQK`+
+				`Ps5Deb6QkJD4ioDtF9fNpy4dN5XbQzOlaOrwDZ07Tc81uTTBFOiNt/PKuHjmltAYnHWHQCRIH+GNOzB+ZPYpoKtORq2mMIUmNSH5Tl`+
+				`9zVjDJCWCfM7wJmtZAWMRXhkZMoqetHb/6JprgcI01KxkgUSZLrU6IPHuPjWg1atnSTMQ1hELBQen7auj/zZtYEv3Dy8PlF08a1G1P`+
+				`x7OrTXTACSIWYgvAqqKH5B+oARTIBa+OyhmAmZSHkVWS9POoQ5yFSk7MOGpx8CkR+Qh8gMTfFu7eex4c7E13ndw1cjEi2tM0QwwwXx`+
+				`N7bz2B+md+kchMGvISR/8S2Qh2E03WtXGYDuEMk/1lu38E0iLDxe97wP2FuRF7CkuHbdTCqD56LwHg61rUs4RhMTavPSMRKHcevamA`+
+				`YeRE5CQNrQePuwwtBTWcg65mOng8xp7cGDdMLAF7u/K6K1/fzEfpVVC2+v0FigiwfZk1JylY/AyJJ41viHMFvvL0H3AYfIhfhlU891`+
+				`NJCASdPYsguysIBJjC2+kRTAfH+s+RH5LKoPIQBN3H90IPpr5jOyMpddAC3Yq0anm/sPVz7zI3Kg8hBGHD0xrznOflb18rURUQKKrs`+
+				`1UwDH0ZsHPgsHYjKhH9BQPUARLyXiAy8/gKAksi5NvRVHb+5fUnEgJhL6g22jOvecRKOrSehLACmkJnUbmJrUedWHmLwmTiQMASRhj`+
+				`DO5vInxiSRNHBrEeYgFfsQkwpIvVlLnnhEdjrSvBQTGkQMmVbTn6XxGAqHfTxhzzw069a8HJAuOuuN5DWpudp+rkOQzEghZnVevwcg`+
+				`QwEZT/won4RfyfnqzQRF7v6/ZYTTOITwEEQXi6MEPkjnY+CovEUSULbdB52Lvgbj+vXIlZOBiCUtsyrL4Sd0Edpp/BBBEtpoOjVJ7C`+
+				`9YAqrFTMY7Q5wmN93uaC3Xq2S4F0yHqdbqeEpR332eLm4pxhIcFU4GsJt5sCvgHrCgr2ggQRfvtjkWMS07FELKJQ6P6AmZUbEwuu5R`+
+				`IFmnSgGW//eHz/DFTMZrQH6398jx99w8DkveWurD3KNgP7MeL0dNoQmbbQDXeMV1NTKUvDmVCRNKWJvX8n+xyMXoQIwmZRa9q/BRtA`+
+				`Kzl/uwk9ESSbgHRxr6pGGlPowj9dhSW9MTTu/ofnYJbQbpLgxv7jQ24IvU0ivDgbwpqaU2XvOaq/Of8BCuyNcKYLojZ7EqUnkYQMst`+
+				`6tXhnw9Q2+9bfMIKQV5etrkm3Up/ZtEbEIEYQMjpqqJC6V8zb1h/2E3uBZOrMpAl/dj0cMYjhhGxmprS26ZJ3/OfN6EGkJo1t7DUTv`+
+				`RXCBzGc0GDC2rtH8ITm4G8CJIgD6hUffzAuI3yREUrIDKGh0rQFnrX+JkKUk+QpHcTfrJ6GDmIoITsL32FKiyTe/tNUAdHHDk1OfbI`+
+				`flpeQzVzQeFTA/b/B1ftF79JBfGLi00KY2w8jZGav8YmhJG3oXmjz5WRBSHM78NnsRYI5DSE8hDNkYU+jGXPzl7hCVpA1oR7jrXo43`+
+				`BEW2IQQHoZQLS5oPNrJZH8+c9FrND5dM+Y0ZBCPCX0R6T0M4c3oLxxCiE/HN3TDhsm1hAziMSEzhNcQkJIlxV8SjwZFLpNFBt2viRv`+
+				`EI0JmCAuGCOtePP7bzMxOtCY4DBsfdsBDSt+PCA/hulpa0CGcapfdgUGIVmemLlWBHZulSTNvTAB+5DCOCA9KauTpTq9Q1y4JCKVek`+
+				`txqyfB3WkSprmAwp+qhGuVITYOEV8wQvtNtwtnlJiEAaXp71V1Op9P+ZiynZkRT6jG+7wexcBR/BwlZb+/tM62kSw0hpJX0dh9KLkE`+
+				`EZ7aRU2URyPiv6E7GS8xmVJBwP2dhUSEKCq65l/KFAAhVQXh/LgGLNbpxzi+Se4sVQWSXGMHgNEB4xTyLNeQlaf7wUiLlltvKLmFfX`+
+				`vxaTqGpZBAH3jrx4AGCm/sBwr2SqkaVLO1JRNq8YMyNZjdHh2lublMl9LQmlIZB/K3ulS+W8PAoYJ+CPNPlxfDIp1tWlAAgmReV21R`+
+				`LUWmJvX2MKDX1E7LZC8hyC8rkYglEZG1uhCMRSRi8TIGI9BWtCvu19/rBLVM/IeMMQUkFWDZdClBzG1g5RoSqkm6K19FaHSz41DRgT`+
+				`f2EjJI+ixDPLC9VtIaQ1T/S0a1gp849iAjprxCcis/MZ48mZJV0TdPcq4utKjTXiTrXJqaJMpA1AlVgrak/NvURsnsVH6CkjnwxZ2g`+
+				`NQnXUQ8Qpdikl5FA1ZXLDpUjCw3aTcQen5yrL8qWGUMrNcBQgLNj4naJcJiaZPJXDPk2hGEl4CGiMz+3S90JBKdLaw5jDl7Bi434pa`+
+				`3QDarqI8Bcs4RUTsv0GJcVyykiYn1AfNaIBifa88hsACYmgpi9M4HYVQcgUAquPNtGVTkolRdyVbkjfRM5CqqZDfj+MyjViTe17Jvl`+
+				`diiBkQrY7UNJKP1X6gvBpcGSG63f0QewJYdHkd8RyuQ8T0b4L94g+wp2h8Vb3gjlKkeiWJcuClSz5i+fck9aNNjQwiDcp/JReD670o`+
+				`wj3cY96/UKUFCutFHxlebKsDYfD2nLjlpNLbhIJuyn0pwXRkf1yrYblTRlCxtCU7mEa1jTuN9HlV6FimrCQNSvitJk4AAlaCo6K+81`+
+				`l3ZuIpVBTwxIeZqpKM92v3NVP0qRxg7eHshVFrJhLOX4aJVgaQjhNQ9gnhKJ92MGIIDwYmtIPOg151xWS3MdYYVZ6hLET79ASvEU6Q`+
+				`qTT/H7vx2EQSwmE12BoRIHL68KWcx+LgSBaMZ1VXO1Ngsf3tJTfI45pxeLiOszUhBASQ/PQI4bGaXMFpUgbiOJx3wtMEGN+SUIxUVt`+
+				`qTwXlJ0JvnkTIGJoPamhaXA9RGzfCPqsYX0mM9C6OWDxRwptNimgDtWpETe2PUHdxIGTS+VAhpJhTntfOyVbNDP+oZidmrY70cZypE`+
+				`SvNVMmFKRjTt9AFVBihoVJn0edR0m3cGyqVOGOM9JkZyajgRqplmwTGVLjf7+kX4gnV4k94a77qC2R1IoZQEEWzHj0QyKpH/WJKdwi`+
+				`EAzCmys9d8B1BuNtJVUvPcOYA8xypQHrbjJxNZCrHeX7rNhJRxOTZpNBSaQKnTZkSqUIo4cHQfKfp/BEPodWNyrYISbNJbwoRy3zFv`+
+				`E2XHpJG9LDJYfsiH0ZYOhAuYHHY4EoHxc2mhCQB0gcR40+ebroUn1QHe24vwlz+gZAJadY0R9PkIJTkYZxbS0r0LM3QBlLmMuVWolc`+
+				`EZq+5CR9oqpTH4WvtyIyZp26xJQBSa3aMKAq4wxdrMC/UhgdtP4Q5xGhC8jbJD1JvxoeXZjd2laG1ZpVAHzA4dMSfpPEESe1OOsI5P`+
+				`2E9folgzuIX0ZrUx9jPaA6T114RhHNewiIl5No4jI9M4FVQ7HNCkr7q7Pq1KHQLcepaqQ82Sm6NEhb5CPNpCOO1VBCHraRCDqvVvW1`+
+				`gb/GMG7OJpqdvjrInzHMS0lRijWcHKCY3vyVMqIgjNJrujrrT207ndtkdtfRTjqZuCX+nJOQZQynXic23JBLmaEmFJsluu+3Kknbai`+
+				`ZWUY5hmHiJrGuPxweckamnO29GXtjU16fEYwiRLs49L+W2pbG0qsYSdi6XNGUltS1P4Q6S5OGYikkXmV9QWo9M8PldMk0Ne9VwkYbz`+
+				`HT3px3n+YmpA/LiUTcVWJGUMcs0KMI5MklOYQGV9cWmJy+vxrC/LqnchBJAFYejz6mq3NsttOsUvKtbY4aX1IiyEiZ2LavZ2D9In3n`+
+				`/Fvzmhc68OT1viAmFuaEYQYn1QBj7QmnDQQuxrvVKRrfCFxjX/I09zBx+M+JUOmeSiiqNz0T9pDRvrYEUWRWALeQdT48jRsrk3gzbX`+
+				`R1x81whRVMTsn4IF4m/wiPUwWIf6xpbk2mzvXliZf6r2XPmng45VsijEIvqRVb9ADga+RDznwA6586ak5bxB94hyFp9hZnVxP5ZUTi`+
+				`aLZDX0JSWu12fQIanV4ct7szsyc7lu4/B9Jr9egHfBeQRXRHPLZ4nCRcpBJV7A50IK2CuX03KQ2XDIBidSm+xYPhy3SRMLt3lOKj6i`+
+				`7fcc0aQNr2iEZT88q20S0ywdY466/WxostppL0cTmsrX/vsa598SkE597Qor9Q/rOWq7ZH+IKtLA2K8LtKGGLNOHVYIMRsqnEos7G+`+
+				`8IAJCPNcrtQUcpujSF94+0fFhP2DxljWiUOkRjTdB0wyOyod6e12u1y08zgWLu28TI42Om75TIsHCW9XAY+TGs0h/uVgewV72HmKCL`+
+				`vPn4aQlpLo1lU0pbcRyMqsDVpKtOJmyOr5ObmVqFl0zBDN/s5hDS6j/+YvI8frMVo8Ndi7N5LlmX4XwZ8RPSVs8Wp3JhKoyGYNxXov`+
+				`wsB15CphJFaCtRi/E6sxWBXF149zZ8+OGrVa1QlwTbT8wpeX1oRN5YuU9NvjXjrac6sicpeELHQ+w3mbaUHsdON2Yj1IduaKMxRE8U`+
+				`crfT2SGsXK77kFNrfk9obzwuJtBn6quV3IOUOnYZMXVtU5R5bmwjHf7H4BY0fEwRZS1rkXCF+qAL51EFT9ifkkCRjL5WYXJvI1pcu/`+
+				`pKjlRI0vyJGb/O6fO1vRi46OuQmWytaX/rJUV/qrxFO2v4Ll4yfiFyGHVhiEf6ngxcK87KI1giL4s+DN4yuEWbOBNFmGNhJo6Zo/0e`+
+				`WApENFtycLHu3EBy9gSTTHM1HVA8QPyGz/PBq9dOpqdRqtzI9nyGXB0QD4VBEpFFH1uqoVv9bJOHxeYtX/oIB8u9GtUZtnKUPhfGBI`+
+				`RxHHvIkKw1qigS+8xbBg10C7qQYE6ndMXGl08ouyY2sAXz62LW45g5xoLVC3JkZpgBze+5pxb++0FYkwMryEAqCTw9R2yj6nC7SJ/T`+
+				`c0/owC2PPPbH+4h1+Ey/5TY0GSUslw1ZEyGt9YU5j9/no2bX79yglzfD84XZ7BM+COZSTRYezhWShFJcNOT5/GDwmG32G1PB6Cw14T`+
+				`3IjCUHiVBy2Mzu+/wrDg6dxLgv60xFnyPQaSjhDyp4D/kHPAd/ynwPWaO12Y5TRkUWapBTFRtyJAdg4hHPAd9zngH0dS2mrRNARzkH`+
+				`U6cHqrA5lSu4tLIrwa7SOopw0EfZdabcfO+ks90FNve0LMs95PSLS6rCpL3Yz8YhI65qQpnHacQ9Mpj2/hPdDOv+olVJcTwXanAYrd`+
+				`c4D+QhmfVb9iJBO2yUolUH08XVEzDcdwjfGVST2VDjqiyGYS42vOgJpnjHNhFBCQ0iYmp1ohUA5WaNVBL3PVH0x2Ng0j2lvE06HkSU`+
+				`hKk+hqhObzRiVR/rY621yuB2Sp7eJrz8N9EZWzFu+ZEaGWorK3RuwWkRHY95apofWfJlgnv40vgY1kMwQxJsxl3XM0NLoK5qdMadxr`+
+				`nV3tPKRmYVcPYZ8faLWXt9Svs+sTTLyFtCbHOxofBWmpNESc3uRtk8Um5AqVN+ox5jwxZp9SBo5JxUn+ADH0Kds25U5phR+AzpqvzE`+
+				`3CnP2+mK7mRkLG3ZjySIq2Stu49LaWcsn2LFodsCAiErsJjRdeMBz+DQOHeg5+7Wxh9a9ZaKAeeaWtgEHhpfWWXGpbI07JiyZzH58C`+
+				`K/1aVeTlyozDXl77vn6Jn5627nJS3fJW8yJjb5rnT6KcrlOqxSUCqxRYl5GJ2YNwmC2dTl330TfCkP9TQdxKsdHNiS+oGEknCNpdHP`+
+				`WKSkp+JXyxKRbS5WaHjuCUoueDLPnp/W+ZAYRlhjwsXFCZYYm1SreEURRwTeNLjrJZWi51wo96EfMd7weSF1aA88uKtL0L/U1yCAeQ`+
+				`4wrAqPNyHLjIWy8C7QlEjAOB21CnaZBGbxME/QAtpZm8cXTOck7MGev2V7JaXrQ+hpi0dSpYM5QiOmmvZ401Ow34JyqYHaG3t1Mimk`+
+				`O+/UWve+Rjw9JmjtwwMYQjVnGJsDIK7ZoveAZfYR9vaBpiRRB7FpHnengrlu5OVk63u1oZqfZXCr0jk3YI3Kmm7amcy0vkaSjyS3d9`+
+				`FWw0k0owEZWH8ZatFkdTdkL2neBDr26gyjgUZcMrT3pvs6G9AJYOnnGZDxHM2wSQDKdyN+d/qilE/chxy1PENIstJoq9FUU05nk4lV`+
+				`ULq/ocaLemm12nbKft68DZiHv9WR3Aj3ZpXGHXigOl5CSH1dmNMiS0OjWNHd7mbgBd+daFlwNHMIGu8aSZbU2t5SPPJabTtJSBuled`+
+				`yK2QuiEnuy+y+SMn5jGp7dszSeBne5LSxWxgru7n2r6qObtR9PKIRM704mrl8vEPMLmA9qN3PayY60OWk4tjGJWXvWk5aiW8/qWsns`+
+				`xJ/TV9+mpWvyktyCRxbCvEmlo7imUZau8/wGyyuNpY3dDM73D2nRm3ZEr6UQ0TSPWSdPgy9Z4M1Pgwmp66RjGtWY5yTRJ0pSeW8TvB`+
+				`oeO8t9v8XB0vwWCo2d0e11s1LrtMtshExG99NoF7i7qFuAicmF4u+xuVqM6kdFk05/WGnh76Ti4CLGzySWUfyCaP6Spi1/sxzvpfgu`+
+				`fsTGqH4c7SvZPsz1zHPKhB3XZCt6zCpUnrdVyKJh7SDA9JpQUeW0SaW0RFj088gDE2sBNKlMBQLpEg3j07DtKju+ZEYL3zGiter3p5`+
+				`uD+9ONPBvVZUnMDkCbe1RnQzhKiJ4LXZgLQTbMx27ihG6ABCbtnphB7NVn8XUHs/RF0HyNwVxCdT7kor04b1qD2ql9rbIdr2zrjUOB`+
+				`H1Zc4lS6NDhJlf1fQPbOZVghJznASfvNdGVmkmTf/fU8IxZ/C8trL5lokKOg0TKg2AJ3dlvcRTwPfIpO43spxdZuG+54oYO8zm/ue4`+
+				`u7s4u9xBH9IRGHd+mZZc4g/qNxQgcqKzhQGj64iOKI7/51dhzE8486ujO5dgw9P4k7dIi4x12qPR6PVaFRvtmWtDN+RwwLesCe1v3d`+
+				`tnt29a76Mxll350FhH8RuZDT1bXkfUUxaAse7/jjcnee/k/G8u/OYWwTgC3WHeEb9L9pLut+LuP8w9LaANITRd1h+wZk0lu9id1hG3`+
+				`0MqfVkfc6LgkhZ1D2niVauJhJF3yU5zX3mX7PJyd8n68lL0qe3uA665X1S6SLzE7f4+4LSAPISRdzo3VulaU58i8AytkRN+pzPXtdU`+
+				`8hAFEtfR5710pa/a/4H4dCXWxZ0QVWgVcSAfIR0iWw76rx4vP3t3qonk7vuRtevQEdHO2vXg8cLd6Icu71aEtpm8yGnf0gh0yGRvd1`+
+				`qVaDdOiNXng0MSoaH/4rsoLNLg8n5Dt/ElfvvoL06owbM7qRwd3sgLU9PHUa0pv2w9+N5h803FaQl/eBhCNd7gTkS42thsVWWLSl7P`+
+				`crnenk2Djz7z/EXMD8hMG7q+G9NRbT9wefthIVmy+8ASRdX3SwTSMEXtvP4v5EwFTEAZusM6rhrG2QVOhoKAzKmuZMZJXIcuOcW17q`+
+				`wDR0Lyh+gG5rGhqwkB0Aw/y7skzOIp5A9ngTPi8ay+as5tt+yH77flIfVIApiI8QlSL6vrR9o5DmHg6kjNxHSTgHS8x7A2Aj3hcqyX`+
+				`1DMB0hIEwHDS1dDcXPEbRFGYTV9Jz6dvL7EePZnbc1VTx+Igt+/2jGNTQ5GD7DMIjRPJ+6vsLdRyUsdZt5vj2YkIBITs3gPNpiucin`+
+				`j7V4zdMB5iW8MgxgsGpfr7Z3nwUMR4uJ65OvAd/99EtnixZOmRYd1lk235bVA1D9ds3Xj9/BiGZjAGtgSXV4rG3Z1SGy5VcBkhuPBl`+
+				`JVhmNXiFL7p0mtnv366oRNG0pp+CJhGwGbi8lY409RtHbi1mO5HKZZyi32zPyaOng3U4H4bMf1GIh+C7BC1YuRghRqu/dC3k1f20s3`+
+				`gR7l+nFlRsMe4ewhXo467k7znvY38jBXk2r3q+JsD3jpYtF0E/yemqQML2Gnkx47BmpWc2/zx/FA6RZMZXa66TebkEjqDDJtdzxBDL`+
+				`i2+0Zb/o9vnxXS8dT4RQNPZ2QaGoII9HVu/XTvb2HhIy9KTqdaX8wgQRpu+2CkL+b9dFk0J/WHME87GoAnvK0/pEP5TtFQ88hJH6jc`+
+				`DxP8sVi9X39RD7pfsMJTkVSioYzHHZqIJ3h0GkI3rd3+zMUT3z69V41iAM8Aiyk9REZEB77DY+R2L/q8/qDTCab3X+h2+GseHtPu40`+
+				`aG/DW7z+J78kfj9+JM/BswhD3TxkJpKH+/Pz9aPd6O8oYIc+iZ9+/LO4InREyfHn1jAE8k5AyHuuq99SNonq3oJQ9GM6wNqXA1tvSF`+
+				`anvCxk+NXUQkykhtarhiGQwjNJ1Sf2xePh4u1fsY1Hu3z7mi+cq+VdGPmTsto/qPL7zCUM9xx5SVY3iNQFQfz5/X6wfHuaePDysF9+`+
+				`fyaQr0R+qkXjn82VBSExOiOvwYRJTX9pKkcjuS8P7YYQSgIM4w8DsJQtCmI8xjDtOdTtY7NdRcJTv/PEDyYaQgzGlZMWXHSFhLEGoH`+
+				`DMovFIg/r2UFV+WhN/oQKrnMqqF7IaPSqaE3yhk4QzIrPG+ZU/4jUJGOckYtDyNErLG+3YRQhCgTGN6DKC7AN63ixF+o5anuKMMDe0`+
+				`KB7gsLUtQLkdI5Qo4YTyPEQsUjbBdaOx2cmFCT65AvHhmK6US/d5XvPmXEP5R+Uf435d/hP99+Uf435d/hP99+T+F/dGbMpDDSQAAA`+
+				`ABJRU5ErkJggg==`;
+
+			const algos = [
+				'linear',
+				'easeInQuad',
+				'easeOutQuad',
+				'easeInOutQuad',
+				'easeInCubic',
+				'easeOutCubic',
+				'easeInOutCubic',
+				'easeInQuart',
+				'easeOutQuart',
+				'easeInOutQuart',
+				'easeInQuint',
+				'easeOutQuint',
+				'easeInOutQuint',
+				'easeInExpo',
+				'easeOutExpo',
+				'easeInOutExpo',
+				'easeInSine',
+				'easeOutSine',
+				'easeInOutSine',
+				'easeInCirc',
+				'easeOutCirc',
+				'easeInOutCirc',
+				'easeInElastic',
+				'easeOutElastic',
+				'easeInOutElastic',
+				'easeInBack',
+				'easeOutBack',
+				'easeInOutBack',
+				'easeInBounce',
+				'easeOutBounce',
+				'easeInOutBounce'
+			];
+
+			document.querySelectorAll('.smile-guy').forEach(d=>{
+				d.innerHTML = `<img class='img-fluid' src="${smiley_img}">`;
+			});
+
+			document.querySelectorAll('.easing-select').forEach(select=>{
+				select.innerHTML = algos.map(a=>`<option select='${a}'>${a}</option>`).join('');
+				select.value = algos[Math.floor(Math.random() * algos.length)];
+			});
+
+			document.getElementById('animate-l2r-btn').addEventListener('click', async function(e){
+				e.preventDefault();
+				await Promise.all([...document.querySelectorAll('.animate-l2r')].map(async row=>{
+					let element = row.querySelector('.red-ball');
+					let algo = row.querySelector('.easing-select').value;
+					let start_value = 3;
+					let end_value = row.querySelector('.l2r-container').getBoundingClientRect().width - 36;
+					let unit = 'px';
+					let style_property = 'left';
+					let duration = 3000;
+					await animate({element, unit, start_value, style_property, end_value, duration, algo});
+					await new Promise(d=>setTimeout(d, 500));
+					element.style[style_property] = `${start_value}${unit}`;
+				}));
+			});
+
+			document.getElementById('animate-fo-btn').addEventListener('click', async function(e){
+				e.preventDefault();
+				await Promise.all([...document.querySelectorAll('.animate-fo .col-sm-6')].map(async col=>{
+					let element = col.querySelector('.smile-guy');
+					let algo = col.querySelector('.easing-select').value;
+					let start_value = 1;
+					let end_value = 0;
+					let style_property = 'opacity';
+					let duration = 3000;
+					await animate({element, start_value, style_property, end_value, duration, algo});
+					await new Promise(d=>setTimeout(d, 500));
+					element.style[style_property] = `${start_value}`;
+				}));
+			});
+
+			document.getElementById('animate-rotate-btn').addEventListener('click', async function(e){
+				e.preventDefault();
+				await Promise.all([...document.querySelectorAll('.animate-rotate .col-sm-6')].map(async col=>{
+					let element = col.querySelector('.smile-guy');
+					let algo = col.querySelector('.easing-select').value;
+					let start_value = 0;
+					let end_value = 360;
+					let style_property = 'transform';
+					let duration = 3000;
+					let unit = p => `rotate(${p}deg)`;
+					await animate({element, start_value, style_property, end_value, unit, duration, algo});
+					await new Promise(d=>setTimeout(d, 500));
+					element.style[style_property] = `${start_value}`;
+				}));
+			});
+
+			document.getElementById('animate-bounce-btn').addEventListener('click', async function(e){
+				e.preventDefault();
+				let element = document.querySelector('.blue-ball');
+				let duration = 3000;
+
+				let vertical_movement = animate({
+					element, duration,
+					start_value: 3, 
+					style_property: 'top', 
+					end_value: 446, 
+					unit: 'px', 
+					algo: 'easeOutBounce'
+				});
+
+				let horizontal_movement = animate({
+					element, duration,
+					start_value: 3, 
+					style_property: 'left', 
+					end_value: document.querySelector('.bounce-container').getBoundingClientRect().width - 66, 
+					unit: 'px', 
+					algo: 'easeOutSine'
+				});
+
+				await Promise.all([vertical_movement, horizontal_movement]);
+				await new Promise(d=>setTimeout(d, 500));
+				element.style.top = '3px';
+				element.style.left = '3px';
+			});
+
+			document.querySelectorAll('.anxiety-inducing-header').forEach(header=>{
+				let letters = header.innerText.split('');
+				header.innerHTML = letters.map(l=>`<span style='display:inline-block;'>${l}</span>`).join('');
+
+				(async function adjustSpacing(){
+					let vals = [[3, 8, 'easeInCubic'], [8, 3, 'easeOutCubic']];
+					for(let i=0; i<vals.length; i++){
+						let [start_value, end_value, algo] = vals[i];
+						await animate({
+							element: header, 
+							start_value, end_value, duration: 1500,
+							style_property: 'letter-spacing', 
+							unit: `px`,
+							algo
+						});
+					}
+					adjustSpacing();
+				})();
+
+				(async function titleDance(){
+					let letters = [...header.querySelectorAll('span')];
+					let deg = [[-15, 15, 1500, 'easeInCubic'], [15, -15, 1500, 'easeOutCubic']];
+					for(let i=0; i<deg.length; i++){
+						let [start_value, end_value, duration, algo] = deg[i];
+						await Promise.all(letters.map(element=>{
+							return animate({
+								element, start_value, end_value, duration,
+								style_property: 'transform', 
+								unit: p => `rotate(${p}deg)`,
+								algo
+							});
+						}));
+					}
+
+					await titleDance();
+				})();
+
+				(async function changeTitleColor(idx){
+					let colors = [
+						[245, 129, 66],
+						[245, 245, 66],
+						[135, 245, 66],
+						[66, 245, 150],
+						[66, 236, 245],
+						[66, 132, 245],
+						[132, 66, 245],
+						[242, 66, 245],
+						[245, 66, 105]
+					];
+					let start_color = idx === -1 ? [0, 0, 0] : colors[idx];
+					idx = idx + 1 === colors.length ? 0 : idx + 1;
+					let end_color = colors[idx];
+					await animateColorChange(header, 750, start_color, end_color);
+					await changeTitleColor(idx);
+				})(-1);
+			});
+
+			async function animateColorChange(element, duration, start_color_rgb, end_color_rgb){
+				let dif = (a, b, p) => {
+					if(a > b) p = 1 - p;
+					let difference = Math.abs(b - a);
+					let movement = difference * p;
+					return Math.round(Math.min(a, b) + movement);
+				};
+				await animate({
+					element, duration,
+					start_value: 0, 
+					style_property: 'color', 
+					end_value: 1, 
+					unit: pct => {
+						let r = dif(start_color_rgb[0], end_color_rgb[0], pct);
+						let g = dif(start_color_rgb[1], end_color_rgb[1], pct);
+						let b = dif(start_color_rgb[2], end_color_rgb[2], pct);
+						return `rgb(${r}, ${g}, ${b})`;
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
