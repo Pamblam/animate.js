@@ -16,5 +16,5 @@ let minified = UglifyJS.minify(code);
 fs.writeFileSync(`${__dirname}/animate.min.js`, minified.code);
 
 let readme = fs.readFileSync(`${__dirname}/readme.md`, {encoding: 'utf8', flag: 'r'});
-readme = readme.replace(/\d+ byte/, minified.code.length+" byte");
+readme = readme.replace(/\d*\.*\d+ KB/, (Math.floor((minified.code.length/100))/10)+" KB");
 fs.writeFileSync(`${__dirname}/readme.md`, readme);

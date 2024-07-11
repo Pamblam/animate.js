@@ -1,6 +1,6 @@
 {
 	"name": "animate",
-	"version": "1.10012",
+	"version": "1.10017",
 	"main": "index.js",
 	"scripts": {
 		"build": "node build.js"
