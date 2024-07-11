@@ -18,3 +18,7 @@ fs.writeFileSync(`${__dirname}/animate.min.js`, minified.code);
 let readme = fs.readFileSync(`${__dirname}/readme.md`, {encoding: 'utf8', flag: 'r'});
 readme = readme.replace(/\d*\.*\d+ KB/, (Math.floor((minified.code.length/100))/10)+" KB");
 fs.writeFileSync(`${__dirname}/readme.md`, readme);
+
+let index = fs.readFileSync(`${__dirname}/index.html`, {encoding: 'utf8', flag: 'r'});
+index = index.replace(/\d*\.*\d+ KB/, (Math.floor((minified.code.length/100))/10)+" KB");
+fs.writeFileSync(`${__dirname}/index.html`, index);

@@ -2,11 +2,15 @@
 
 There are probably 1,000 Javascript libraries called "animate.js" but this isn't a Javascript library. What if I told you you don't need a big ass library to do complex animations in the browser. This tiny 1.3 KB function is all you need.
 
+View the interactive demo [here](https://pamblam.github.io/animate.js/), and the GitHub repo [here](https://github.com/Pamblam/animate.js).
+
 ## Usage
 
 Grab a copy of the code from [here](animate.js), or the minified code from [here](animate.min.js).
 
 ### Demo
+
+Basic usage looks like this:
 
 ```js
 import {animate} from './animate.js';
