@@ -63,7 +63,47 @@
 	<body>
 		<div class="container">
 
-			<h1 class="anxiety-inducing-header">Animate&nbsp;Function&nbsp;Demo</h1>
+			<h1 class="anxiety-inducing-header">Animate.js&nbsp;Docs</h1>
+
+			<p>There are probably 1,000 Javascript libraries called "animate.js" but this isn't a Javascript library. What if I told you you don't need a big ass library to do complex animations in the browser. This tiny 1.3 KB function is all you need.</p>
+
+			<h3>Usage</h3>
+
+			<p>Grab a copy of the code from <a href="animate.js">here</a>, or the minified code from <a href="animate.min.js">here</a>.</p>
+
+			<h3>Demo</h3>
+
+			<code><pre>import {animate} from './animate.js';
+
+// Fade an element out
+await animate({
+	element: document.getElementById('header'),
+	style_property: 'opacity',
+	start_value: 1, 
+	end_value: 0
+});</pre></code>
+
+			<h3>Options</h3>
+
+			<p>The function takes an options object, which can have the following properties:</p>
+
+			<ul>
+				<li><code>element</code>: The HTML element to anmimate.</li>
+				<li><code>style_property</code>: The style property to animate.</li>
+				<li><code>start_value</code>: The initial numeric value at the begining of the animation. If not provided the function will attempt to use the computed style_property.</li>
+				<li><code>end_value</code>: The final numeric value at the end of the animation.</li>
+				<li><code>unit</code>: If a string is provided, it is appended to the end of the calculated numeric value and set as a CSS property. If a function is provided, the function is passed the calculated numberic value and is expedcted to return the CSS preoperty value at that frame. If not provided, the property will be assigned a number.</li>
+				<li><code>duration</code>: The duration of the animation, in milliseconds. The default value is 250.</li>
+				<li><code>algo</code>: Optional. The easing algorithm to use. See Below. Default is <code>linear</code>.</li>
+			</ul>
+
+			<h3>Easings</h3>
+
+			<p>Easings are based on the same <a href="http://www.robertpenner.com/easing">Robert Penner algorithms</a> used by jQuery. The options are:</p>
+			
+			<p><code>linear</code>, <code>easeInQuad</code>, <code>easeOutQuad</code>, <code>easeInOutQuad</code>, <code>easeInCubic</code>, <code>easeOutCubic</code>, <code>easeInOutCubic</code>, <code>easeInQuart</code>, <code>easeOutQuart</code>, <code>easeInOutQuart</code>, <code>easeInQuint</code>, <code>easeOutQuint</code>, <code>easeInOutQuint</code>, <code>easeInExpo</code>, <code>easeOutExpo</code>, <code>easeInOutExpo</code>, <code>easeInSine</code>, <code>easeOutSine</code>, <code>easeInOutSine</code>, <code>easeInCirc</code>, <code>easeOutCirc</code>, <code>easeInOutCirc</code>, <code>easeInElastic</code>, <code>easeOutElastic</code>, <code>easeInOutElastic</code>, <code>easeInBack</code>, <code>easeOutBack</code>, <code>easeInOutBack</code>, <code>easeInBounce</code>, <code>easeOutBounce</code>, <code>easeInOutBounce</code></p>
+
+			<h1 class="anxiety-inducing-header">Animate.js&nbsp;Demo</h1>
 
 			<div class="card mb-3">
 				<div class="card-header">Animate Left to Right</div>

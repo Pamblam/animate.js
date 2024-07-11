@@ -30,10 +30,10 @@ The function takes an options object, which can have the following properties:
  - `end_value`: The final numeric value at the end of the animation.
  - `unit`: If a string is provided, it is appended to the end of the calculated numeric value and set as a CSS property. If a function is provided, the function is passed the calculated numberic value and is expedcted to return the CSS preoperty value at that frame. If not provided, the property will be assigned a number.
  - `duration`: The duration of the animation, in milliseconds. The default value is 250.
- - `algo`: Optional. The easing algorithm to use. See Below.
+ - `algo`: Optional. The easing algorithm to use. See Below. Default is `linear`.
 
 ### Easings
 
-Easings are based on the same [Robert Penner algorithms](http://www.robertpenner.com/easing) used by jQuery.
+Easings are based on the same [Robert Penner algorithms](http://www.robertpenner.com/easing) used by jQuery. The options are:
 
 `linear`, `easeInQuad`, `easeOutQuad`, `easeInOutQuad`, `easeInCubic`, `easeOutCubic`, `easeInOutCubic`, `easeInQuart`, `easeOutQuart`, `easeInOutQuart`, `easeInQuint`, `easeOutQuint`, `easeInOutQuint`, `easeInExpo`, `easeOutExpo`, `easeInOutExpo`, `easeInSine`, `easeOutSine`, `easeInOutSine`, `easeInCirc`, `easeOutCirc`, `easeInOutCirc`, `easeInElastic`, `easeOutElastic`, `easeInOutElastic`, `easeInBack`, `easeOutBack`, `easeInOutBack`, `easeInBounce`, `easeOutBounce`, `easeInOutBounce`
