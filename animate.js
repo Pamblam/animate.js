@@ -1,6 +1,6 @@
 /**
  * Animate any quantifiable CSS value
- * @version 1.10017
+ * @version 1.10018
  * @param element: The HTML element to anmimate
  * @param style_property: The style property to animate
  * @param start_value: The initial numeric value at the begining of the animation. If not provided the function will attempt to use the computed style_property.
